@@ -18,7 +18,7 @@ facebook_friends=["Nada","Samar","Leen", "Marcelle", "Fouad", "Gi"]
 @app.route('/', methods=['GET', 'POST'])  # '/' for the default page
 def login():
   if request.method== 'POST':
-  	if username==request.form['username'] and password== request.form['password']:
+  	if username==request.form['username'].casefold() and password== request.form['password']:
   		return redirect(url_for('home'))
   	else:
   		return render_template('login.html')
